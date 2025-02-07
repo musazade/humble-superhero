@@ -4,6 +4,7 @@ import { SuperheroesService } from './superheroes.service';
 
 @Module({
   controllers: [SuperheroesController],
-  providers: [SuperheroesService]
+  providers: [SuperheroesService],
+  exports: [SuperheroesService],
 })
 export class SuperheroesModule {}
