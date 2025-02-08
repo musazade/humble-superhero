@@ -17,6 +17,7 @@ describe('SuperheroesService', () => {
   });
 
   it('should return superheroes sorted by humilityScore', () => {
+    // Create superheroes with different humility scores
     service.create({ name: 'Ironman', superpower: 'Flying', humilityScore: 5 });
     service.create({ name: 'Flash', superpower: 'Speed', humilityScore: 9 });
     service.create({
@@ -25,9 +26,12 @@ describe('SuperheroesService', () => {
       humilityScore: 7,
     });
 
+    // Retrieve the list of superheroes sorted by humilityScore in descending order
     const superheroes = service.findAll();
-    expect(superheroes[0].name).toBe('Flash'); // Highest humility score first
-    expect(superheroes[1].name).toBe('Superman');
-    expect(superheroes[2].name).toBe('Ironman');
+
+    // Verify the order of superheroes by their humilityScore
+    expect(superheroes[0].name).toBe('Flash'); // Expect Flash to be first as it has the highest humility score
+    expect(superheroes[1].name).toBe('Superman'); // Expect Superman to be second
+    expect(superheroes[2].name).toBe('Ironman'); // Expect Ironman to be third
   });
 });
